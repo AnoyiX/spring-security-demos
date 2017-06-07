@@ -53,8 +53,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+            <state relative-caret-position="76">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -193,8 +193,13 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.scopes" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/security-login-no-db/.gitignore&#10;true" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/security-login-no-db/.gitignore&#10;/Users/admin/Code/tezign/backend/spring-security/.gitignore&#10;true" />
     <property name="ignore_missing_gitignore" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -321,12 +326,12 @@
       <workItem from="1496647338940" duration="1290000" />
       <workItem from="1496649318959" duration="9636000" />
       <workItem from="1496726351263" duration="2386000" />
-      <workItem from="1496799290845" duration="4398000" />
+      <workItem from="1496799290845" duration="4516000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18196000" />
+    <option name="totallyTimeSpent" value="18314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-739" y="-1417" width="2560" height="1417" extended-state="0" />
@@ -835,8 +840,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
+        <state relative-caret-position="76">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
