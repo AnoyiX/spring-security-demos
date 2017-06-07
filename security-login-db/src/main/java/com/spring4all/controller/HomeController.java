@@ -12,6 +12,11 @@ public class HomeController {
 
     private UserService userService;
 
+    @Autowired
+    public void setUserService(UserService userService){
+        this.userService = userService;
+    }
+
     @GetMapping({"/", "/index", "/home"})
     public String root(){
         return "index";
@@ -35,8 +40,4 @@ public class HomeController {
         return "redirect:register?error";
     }
 
-    @Autowired
-    public void setUserService(UserService userService){
-        this.userService = userService;
-    }
 }
