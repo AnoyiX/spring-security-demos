@@ -1,6 +1,7 @@
 package com.spring4all.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 public class UserEntity {
