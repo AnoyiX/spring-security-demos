@@ -42,5 +42,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     protected void configure(AuthenticationManagerBuilder builder) throws Exception{
         builder.userDetailsService(anyUserDetailsService);
     }
-
 }

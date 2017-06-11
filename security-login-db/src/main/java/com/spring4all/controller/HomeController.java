@@ -2,18 +2,16 @@ package com.spring4all.controller;
 
 import com.spring4all.entity.UserEntity;
 import com.spring4all.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@AllArgsConstructor
 public class HomeController {
 
     private final UserService userService;
-
-    public HomeController(UserService userService){
-        this.userService = userService;
-    }
 
     @GetMapping({"/", "/index", "/home"})
     public String root(){
