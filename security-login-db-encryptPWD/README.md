@@ -18,7 +18,6 @@ https://github.com/ChinaSilence/any-spring-security
 1、clone 代码
 ```
 git clone https://github.com/ChinaSilence/any-spring-security.git
-cd security-login-db
 ```
 
 2、启动应用
