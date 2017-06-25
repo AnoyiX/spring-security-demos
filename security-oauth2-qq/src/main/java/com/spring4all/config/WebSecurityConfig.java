@@ -5,6 +5,7 @@ import com.spring4all.filter.qq.QQAuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
@@ -38,7 +39,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
      */
     private QQAuthenticationFilter qqAuthenticationFilter(){
         QQAuthenticationFilter authenticationFilter = new QQAuthenticationFilter("/login/qq");
+        SimpleUrlAuthenticationSuccessHandler successHandler = new SimpleUrlAuthenticationSuccessHandler();
+        successHandler.setAlwaysUseDefaultTargetUrl(true);
+        successHandler.setDefaultTargetUrl("/user");
         authenticationFilter.setAuthenticationManager(new QQAuthenticationManager());
+        authenticationFilter.setAuthenticationSuccessHandler(successHandler);
         return authenticationFilter;
     }
 
