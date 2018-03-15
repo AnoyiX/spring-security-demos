@@ -1,9 +1,12 @@
 package com.spring4all.config;
 
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
@@ -28,13 +31,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     }
 
     /**
-     * 在内存中创建一个名为 "anoy" 的用户，密码为 "pwd"，拥有 "USER" 权限
+     * 在内存中创建一个名为 "user" 的用户，密码为 "pwd"，拥有 "USER" 权限
      */
+    @Bean
     @Override
-    protected void configure(AuthenticationManagerBuilder builder) throws Exception{
-        builder
-                .inMemoryAuthentication()
-                .withUser("anoy").password("pwd").roles("USER");
+    protected UserDetailsService userDetailsService() {
+        User.UserBuilder users = User.withDefaultPasswordEncoder();
+        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+        manager.createUser(users.username("user").password("pwd").roles("USER").build());
+        return manager;
     }
 
 }

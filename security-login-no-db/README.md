@@ -14,15 +14,11 @@ https://github.com/ChinaSilence/any-spring-security.git
 mvn spring-boot:run
 ```
 
-2、demo 演示，地址：[http://localhost:8080](http://localhost:8080) 账号 anoy 密码 pwd
-
+2、demo 演示，地址：[http://localhost:8080](http://localhost:8080) 账号 user 密码 pwd
 
 ![登录](http://upload-images.jianshu.io/upload_images/3424642-43dcb43f0ba50ce5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
-
 ![用户](http://upload-images.jianshu.io/upload_images/3424642-c38bb99d76a0bd83.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
 
 相关解释说明
 -----
@@ -153,8 +149,3 @@ Demo 中重写了 `WebSecurityConfigurerAdapter` 的两个方法：
  */
 ```
 意思是，`AuthenticationManagerBuilder` 用于创建一个 `AuthenticationManager`，让我能够轻松的实现内存验证、LADP验证、基于JDBC的验证、添加`UserDetailsService`、添加`AuthenticationProvider`。
-
-其他
------
-    如需转载，请联系作者，邮箱 545544032@qq.com
-    开源社区 http://spring4all.com 欢迎你
