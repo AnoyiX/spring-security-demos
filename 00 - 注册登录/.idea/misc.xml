@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../security-login-db/pom.xml" />
+        <option value="$PROJECT_DIR$/../security-login-db-encryptPWD/pom.xml" />
+        <option value="$PROJECT_DIR$/../security-oauth2-qq/pom.xml" />
+        <option value="$PROJECT_DIR$/../security-custom-filter/pom.xml" />
+        <option value="$PROJECT_DIR$/../00 - 注册登录（数据库）/pom.xml" />
+        <option value="$PROJECT_DIR$/../01 - 密码加密/pom.xml" />
+        <option value="$PROJECT_DIR$/../03 - 自定义登录/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/classes" />
+  </component>
+</project>
