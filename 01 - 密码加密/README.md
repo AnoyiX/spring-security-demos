@@ -79,10 +79,10 @@ mvn spring-boot:run
 /**
      * 加密密码
      */
-    private void encryptPassword(UserEntity userEntity){
-        String password = userEntity.getPassword();
+    private void encryptPassword(UserEntity userDO){
+        String password = userDO.getPassword();
         password = new BCryptPasswordEncoder().encode(password);
-        userEntity.setPassword(password);
+        userDO.setPassword(password);
     }
 ```
 新用户注册后，数据库中就会存入密文密码，示例：

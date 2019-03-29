@@ -2,165 +2,48 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Any-Security | SpringForAll - Spring Security</title>
+    <title>Spring Security Demos</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-            width: 100vw;
-            height: 100vh;
-            background: #222;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-        .world {
-            -webkit-perspective: 800px;
-            perspective: 800px;
-            width: 100vh;
-            height: 100vh;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-        }
-        .cube {
-            -webkit-transform-style: preserve-3d;
-            transform-style: preserve-3d;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            width: 50vh;
-            height: 50vh;
-            position: relative;
-            -webkit-animation: rotator 4.5s linear infinite;
-            animation: rotator 4.5s linear infinite;
-            outline: 0;
-        }
-        .cube * {
-            background: #000;
-            box-shadow: 0 0 3vh currentColor;
-            -webkit-transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-            transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
-        }
-        .cube:hover * {
-            background: currentColor;
-            box-shadow: 0 0 20vh currentColor;
-        }
-        .cube .cube__front {
-            color: deeppink;
-            -webkit-transform: translateZ(25vh);
-            transform: translateZ(25vh);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .cube .cube__right {
-            color: lightcoral;
-            -webkit-transform: rotateY(90deg) translateZ(25vh);
-            transform: rotateY(90deg) translateZ(25vh);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .cube .cube__left {
-            color: skyblue;
-            -webkit-transform: rotateY(270deg) translateZ(25vh);
-            transform: rotateY(270deg) translateZ(25vh);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .cube .cube__back {
-            color: seagreen;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            -webkit-transform: rotateY(180deg) translateZ(25vh);
-            transform: rotateY(180deg) translateZ(25vh);
-        }
-        .cube .cube__top {
-            color: mediumseagreen;
-            -webkit-transform: rotateX(90deg) translateZ(25vh);
-            transform: rotateX(90deg) translateZ(25vh);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .cube .cube__bottom {
-            color: dodgerblue;
-            -webkit-transform: rotateX(270deg) translateZ(25vh);
-            transform: rotateX(270deg) translateZ(25vh);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        @-webkit-keyframes rotator {
-            0% {
-                -webkit-transform: rotateX(0deg) rotateY(0deg);
-                transform: rotateX(0deg) rotateY(0deg);
-            }
-            100% {
-                -webkit-transform: rotateX(360deg) rotateY(360deg);
-                transform: rotateX(360deg) rotateY(360deg);
-            }
-        }
-        @keyframes rotator {
-            0% {
-                -webkit-transform: rotateX(0deg) rotateY(0deg);
-                transform: rotateX(0deg) rotateY(0deg);
-            }
-            100% {
-                -webkit-transform: rotateX(360deg) rotateY(360deg);
-                transform: rotateX(360deg) rotateY(360deg);
-            }
-        }
-    </style>
-
 </head>
 
-<body style="background-color: #222222; padding-bottom: 0">
+<body style="padding-bottom: 0">
 
 <div th:insert="~{header :: nav}"></div>
 
-<div class="world">
-    <div class="cube" tabindex="0">
-        <div class="cube__front"></div>
-        <div class="cube__back"></div>
-        <div class="cube__left"></div>
-        <div class="cube__right"></div>
-        <div class="cube__top"></div>
-        <div class="cube__bottom"></div>
+<div class="jumbotron">
+    <div class="container" style="padding-top: 30px">
+        <h1>Spring Security</h1>
+        <p style="margin-top: 20px;">Spring Security 是一个功能强大且可高度自定义的身份验证和访问控制框架，它是保护基于 Spring 的应用的最佳实践，与所有 Spring 项目一样，Spring Security 的真正强大之处在于它可以轻松扩展以满足自定义要求。</p>
+        <p style="margin-top: 20px;"><a class="btn btn-primary btn-lg" href="https://spring.io/projects/spring-security" role="button"> 官方文档 &raquo;</a></p>
     </div>
 </div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Github</h2>
+            <p>Spring Security 源码</p>
+            <p><a class="btn btn-default" href="https://github.com/spring-projects/spring-security" role="button">查看详情 &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Stackoverflow</h2>
+            <p>Spring Security 相关问题答疑 </p>
+            <p><a class="btn btn-default" href="https://stackoverflow.com/search?q=spring-security" role="button">查看详情 &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Micro</h2>
+            <p>Spring Security 在微服务架构下的实践</p>
+            <p><a class="btn btn-default" href="https://github.com/ChinaSilence/micro" role="button">查看详情 &raquo;</a></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2019 Power By <a href="https://anoyi.com">Anoyi</a> .</p>
+    </footer>
+</div> <!-- /container -->
 
 </body>
 

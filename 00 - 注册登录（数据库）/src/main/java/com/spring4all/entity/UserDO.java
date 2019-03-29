@@ -2,9 +2,15 @@ package com.spring4all.entity;
 
 import lombok.Data;
 
-@Data
-public class UserEntity {
+import javax.persistence.*;
 
+@Entity
+@Table(name = "user")
+@Data
+public class UserDO {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     /**
@@ -22,8 +28,4 @@ public class UserEntity {
      */
     private String nickname;
 
-    /**
-     * 权限
-     */
-    private String roles;
 }

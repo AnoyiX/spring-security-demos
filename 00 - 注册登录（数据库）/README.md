@@ -24,7 +24,7 @@ create database any;
 use any;
 ```
 
-3、执行 user.sql，会生成如下数据：
+3、执行 userDO.sql，会生成如下数据：
 
 id|username|password|nickname|roles
 --|--|--|--|--
@@ -88,7 +88,7 @@ Spring Security 校验流程图
 		}
 		catch (InternalAuthenticationServiceException failed) {
 			logger.error(
-					"An internal error occurred while trying to authenticate the user.",
+					"An internal error occurred while trying to authenticate the userDO.",
 					failed);
 			unsuccessfulAuthentication(request, response, failed);
 
@@ -256,13 +256,13 @@ public Authentication authenticate(Authentication authentication)
 				: authentication.getName();
 
 		boolean cacheWasUsed = true;
-		UserDetails user = this.userCache.getUserFromCache(username);
+		UserDetails userDO = this.userCache.getUserFromCache(username);
 
-		if (user == null) {
+		if (userDO == null) {
 			cacheWasUsed = false;
 
 			try {
-				user = retrieveUser(username,
+				userDO = retrieveUser(username,
 						(UsernamePasswordAuthenticationToken) authentication);
 			}
 			catch (UsernameNotFoundException notFound) {
@@ -278,13 +278,13 @@ public Authentication authenticate(Authentication authentication)
 				}
 			}
 
-			Assert.notNull(user,
+			Assert.notNull(userDO,
 					"retrieveUser returned null - a violation of the interface contract");
 		}
 
 		try {
-			preAuthenticationChecks.check(user);
-			additionalAuthenticationChecks(user,
+			preAuthenticationChecks.check(userDO);
+			additionalAuthenticationChecks(userDO,
 					(UsernamePasswordAuthenticationToken) authentication);
 		}
 		catch (AuthenticationException exception) {
@@ -292,10 +292,10 @@ public Authentication authenticate(Authentication authentication)
 				// There was a problem, so try again after checking
 				// we're using latest data (i.e. not from the cache)
 				cacheWasUsed = false;
-				user = retrieveUser(username,
+				userDO = retrieveUser(username,
 						(UsernamePasswordAuthenticationToken) authentication);
-				preAuthenticationChecks.check(user);
-				additionalAuthenticationChecks(user,
+				preAuthenticationChecks.check(userDO);
+				additionalAuthenticationChecks(userDO,
 						(UsernamePasswordAuthenticationToken) authentication);
 			}
 			else {
@@ -303,25 +303,25 @@ public Authentication authenticate(Authentication authentication)
 			}
 		}
 
-		postAuthenticationChecks.check(user);
+		postAuthenticationChecks.check(userDO);
 
 		if (!cacheWasUsed) {
-			this.userCache.putUserInCache(user);
+			this.userCache.putUserInCache(userDO);
 		}
 
-		Object principalToReturn = user;
+		Object principalToReturn = userDO;
 
 		if (forcePrincipalAsString) {
-			principalToReturn = user.getUsername();
+			principalToReturn = userDO.getUsername();
 		}
 
-		return createSuccessAuthentication(principalToReturn, authentication, user);
+		return createSuccessAuthentication(principalToReturn, authentication, userDO);
 	}
 ```
 `AbstractUserDetailsAuthenticationProvider` 内置了缓存机制，从缓存中获取不到的 UserDetails 信息的话，就调用如下方法获取用户信息，然后和 用户传来的信息进行对比来判断是否验证成功。
 ```
 // 获取用户信息
-UserDetails user = retrieveUser(username,
+UserDetails userDO = retrieveUser(username,
  (UsernamePasswordAuthenticationToken) authentication);
 ```
 `#retrieveUser()` 方法在 `DaoAuthenticationProvider` 中实现，`DaoAuthenticationProvider` 是 `AbstractUserDetailsAuthenticationProvider `的子类。具体实现如下：

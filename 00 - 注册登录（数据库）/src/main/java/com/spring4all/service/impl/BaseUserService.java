@@ -1,47 +1,43 @@
 package com.spring4all.service.impl;
 
-import com.spring4all.constant.RoleConstant;
-import com.spring4all.entity.UserEntity;
-import com.spring4all.mapper.UserMapper;
+import com.spring4all.entity.UserDO;
+import com.spring4all.repository.UserRepository;
 import com.spring4all.service.UserService;
-import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 @Service
 @Primary
-@Log4j
+@Slf4j
 public class BaseUserService implements UserService {
 
-    private final UserMapper userMapper;
+    private final UserRepository userRepository;
 
-    public BaseUserService(UserMapper userMapper){
-        this.userMapper = userMapper;
+    public BaseUserService(UserRepository userRepository){
+        this.userRepository = userRepository;
     }
 
     @Override
-    public boolean insert(UserEntity userEntity) {
-        String username = userEntity.getUsername();
-        if (exist(username))
-            return false;
-        userEntity.setRoles(RoleConstant.ROLE_USER);
-        int result = userMapper.insert(userEntity);
-        return  result == 1;
+    public void insert(UserDO userDO) {
+        String username = userDO.getUsername();
+        if (exist(username)){
+            throw new RuntimeException("username exist!");
+        }
+       userRepository.save(userDO);
     }
 
     @Override
-    public UserEntity getByUsername(String username) {
-        return userMapper.selectByUsername(username);
+    public UserDO getByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 
     /**
      * 判断用户是否存在
-     * @param username 账号
-     * @return 密码
      */
     private boolean exist(String username){
-        UserEntity userEntity = userMapper.selectByUsername(username);
-        return (userEntity != null);
+        UserDO userDO = userRepository.findByUsername(username);
+        return (userDO != null);
     }
 
 }

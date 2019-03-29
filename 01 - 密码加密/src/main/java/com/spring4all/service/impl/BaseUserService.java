@@ -2,7 +2,7 @@ package com.spring4all.service.impl;
 
 import com.spring4all.constant.RoleConstant;
 import com.spring4all.entity.UserEntity;
-import com.spring4all.mapper.UserMapper;
+import com.spring4all.repository.UserMapper;
 import com.spring4all.service.UserService;
 import lombok.extern.log4j.Log4j;
 import org.springframework.context.annotation.Primary;

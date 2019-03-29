@@ -1,6 +1,6 @@
 package com.spring4all.service;
 
-import com.spring4all.entity.UserEntity;
+import com.spring4all.entity.UserDO;
 
 public interface UserService {
 
@@ -9,13 +9,13 @@ public interface UserService {
      *
      * username 唯一， 默认 USER 权限
      */
-    boolean insert(UserEntity userEntity);
+    void insert(UserDO userDO);
 
     /**
      * 查询用户信息
      * @param username 账号
      * @return UserEntity
      */
-    UserEntity getByUsername(String username);
+    UserDO getByUsername(String username);
 
 }

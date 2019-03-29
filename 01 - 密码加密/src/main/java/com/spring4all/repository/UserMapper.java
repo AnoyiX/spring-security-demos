@@ -1,4 +1,4 @@
-package com.spring4all.mapper;
+package com.spring4all.repository;
 
 import com.spring4all.entity.UserEntity;
 import org.apache.ibatis.annotations.Insert;
