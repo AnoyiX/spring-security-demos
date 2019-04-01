@@ -1,6 +1,6 @@
 package com.spring4all.controller;
 
-import com.spring4all.entity.UserEntity;
+import com.spring4all.entity.UserDO;
 import com.spring4all.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -29,11 +29,10 @@ public class HomeController {
     }
 
     @PostMapping("/register")
-    public String doRegister(UserEntity userEntity){
+    public String doRegister(UserDO userDO){
         // 此处省略校验逻辑
-        if (userService.insert(userEntity))
-            return "redirect:register?success";
-        return "redirect:register?error";
+        userService.insert(userDO);
+        return "redirect:register?success";
     }
 
 }

@@ -6,16 +6,17 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 
-    private AnyUserDetailsService anyUserDetailsService;
+    private DbUserDetailsService dbUserDetailsService;
 
     @Autowired
-    public void setAnyUserDetailsService(AnyUserDetailsService anyUserDetailsService){
-        this.anyUserDetailsService = anyUserDetailsService;
+    public void setAnyUserDetailsService(DbUserDetailsService dbUserDetailsService){
+        this.dbUserDetailsService = dbUserDetailsService;
     }
 
     /**
@@ -30,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/user/**").hasRole("USER")
+                .antMatchers("/user/**").hasAuthority("USER")
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/user")
                 .and()
@@ -42,16 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
      */
     @Override
     protected void configure(AuthenticationManagerBuilder builder) throws Exception{
-        builder.userDetailsService(anyUserDetailsService)
-                .passwordEncoder(passwordEncoder());
-    }
-
-    /**
-     * 密码加密
-     */
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
+        builder.userDetailsService(dbUserDetailsService);
     }
 
 }

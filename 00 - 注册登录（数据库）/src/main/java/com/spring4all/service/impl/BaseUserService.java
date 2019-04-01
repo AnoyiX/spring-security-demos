@@ -22,7 +22,7 @@ public class BaseUserService implements UserService {
     public void insert(UserDO userDO) {
         String username = userDO.getUsername();
         if (exist(username)){
-            throw new RuntimeException("username exist!");
+            throw new RuntimeException("用户名已存在！");
         }
        userRepository.save(userDO);
     }
