@@ -15,7 +15,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
     private DbUserDetailsService dbUserDetailsService;
 
     @Autowired
-    public void setAnyUserDetailsService(DbUserDetailsService dbUserDetailsService){
+    public void setDbUserDetailsService(DbUserDetailsService dbUserDetailsService){
         this.dbUserDetailsService = dbUserDetailsService;
     }
 
